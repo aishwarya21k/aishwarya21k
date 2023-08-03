@@ -1,0 +1,52 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+titanic=pd.read_csv("/content/Titanic.csv")
+
+titanic
+
+titanic.info()
+
+titanic.describe()
+
+titanic.shape
+
+titanic.head(9)
+
+titanic.tail(10)
+
+titanic.isnull()
+
+titanic.isnull().sum()
+
+titanic.duplicated().sum()
+
+titanic.nunique()
+
+titanic["Name"].value_counts()
+
+titanic["Parents/children"].value_counts().head(9)
+
+titanic.groupby("Name").sum()["Age"]
+
+plt.title("TITANIC")
+sns.histplot(x=titanic["Sex"])
+
+plt.title("TITANIC")
+sns.histplot(x=titanic["Age"])
+
+plt.title("TITANIC")
+sns.histplot(x=titanic["Fare"])
+
+plt.title("TITANIC")
+sns.histplot(x=titanic["Parents/children"])
+
+plt.title("TITANIC")
+sns.histplot(x=titanic["Siblings /Spouses"])
+
+plt.title("TITANIC")
+corr=titanic.corr()
+sns.heatmap(corr,annot=True,cmap='Greens')
+

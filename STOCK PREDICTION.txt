@@ -1,0 +1,40 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+Stock=pd.read_csv("Amazon.csv")
+
+Stock
+
+Stock.info()
+
+Stock.describe()
+
+Stock.shape
+
+Stock.head(10)
+
+Stock.tail(10)
+
+Stock.columns
+
+Stock.isnull()
+
+Stock.isnull().sum()
+
+Stock.duplicated().sum()
+
+Stock.nunique()
+
+Stock["Date"].value_counts()
+
+Stock["Volume"].value_counts().head(9)
+
+Stock.groupby("Date").sum()["High"]
+
+plt.figure(figsize = (18,9))
+plt.plot(range(Stock.shape[0]),(Stock["Low"]+Stock["High"])/2.0)
+plt.xticks(range(0,Stock.shape[0],500),Stock["Date"].loc[::500],rotation=45)
+plt.xlabel("Date",fontsize=18)
+plt.ylabel("Open",fontsize=18)
+plt.show()
